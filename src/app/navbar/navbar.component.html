@@ -1,0 +1,28 @@
+<nav class="navbar">
+  <div class="logo">My Watches</div>
+
+  <div class="nav-links">
+    <!-- Show when NOT logged in -->
+    <ng-container *ngIf="!isLoggedIn">
+      <a routerLink="/seller">Seller</a>
+      <a routerLink="/home">Home</a>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/cart">Cart</a>
+    </ng-container>
+
+    <!-- Show when logged in AND on seller-home route -->
+   <ng-container *ngIf="isLoggedIn">
+     
+      <a routerLink="/profile">profile</a>
+      <a routerLink="/add-product">Add Product</a>
+      <a routerLink="/product-list">Product List</a>
+      <a (click)="logout()">Logout</a>
+    </ng-container>
+  </div>
+
+  <!-- Show search bar only if NOT on seller-home -->
+<div class="search-container" *ngIf="!isSellerPage()">
+    <input type="text" placeholder="Search..." />
+    <button>Search</button>
+  </div>
+</nav>

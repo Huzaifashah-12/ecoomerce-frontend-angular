@@ -1,0 +1,12 @@
+<div class="custom-carousel-wrapper">
+  <ngb-carousel *ngIf="carouselImages.length">
+    <ng-template ngbSlide *ngFor="let image of carouselImages; let i = index" id="slide-{{ i }}">
+      <img [src]="image.src" class="carousel-image" [alt]="image.title" />
+      <div class="carousel-caption">
+        <h5>{{ image.title }}</h5>
+        <p>{{ image.description }}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+ 

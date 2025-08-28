@@ -1,0 +1,11 @@
+
+<div class="product-list">
+  <div *ngIf="products.length === 0">No products found.</div>
+
+  <div *ngFor="let product of products" class="product-card">
+   <img [src]="'http://localhost:5000' + product.imageUrl" alt="Product Image" width>
+    <h3>{{ product.productName }}</h3> 
+    <p>{{ product.description }}</p>
+    <p>Price: ₹{{ product.price }}</p>
+
+</div>

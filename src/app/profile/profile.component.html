@@ -1,0 +1,42 @@
+<h2>Seller Profile</h2>
+
+<div class="profile-container">
+  <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+    
+    <!-- Profile Picture Upload -->
+    <div class="profile-image-section">
+      <img [src]="previewUrl || 'assets/default-profile.png'" alt="Profile Picture" />
+      <input type="file" (change)="onImageSelected($event)" />
+    </div>
+
+    <!-- Name Field -->
+    <label>Name:</label>
+    <input type="text" formControlName="name" />
+    <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched" class="error">
+      Name is required.
+    </div>
+
+    <!-- Email Field -->
+    <label>Email:</label>
+    <input type="email" formControlName="email" />
+    <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched" class="error">
+      Valid email is required.
+    </div>
+
+    <!-- Password Display (Masked) -->
+    <label>Password:</label>
+    <p class="masked-password">********</p>
+
+    <!-- Optional: Change Password Section -->
+    <div *ngIf="changePasswordMode">
+      <label>New Password:</label>
+      <input type="password" formControlName="newPassword" />
+      <div *ngIf="profileForm.get('newPassword')?.invalid && profileForm.get('newPassword')?.touched" class="error">
+        Password must be at least 6 characters.
+      </div>
+    </div>
+    <button type="button" *ngIf="!changePasswordMode" (click)="enablePasswordChange()">Change Password</button>
+
+    <button type="submit" [disabled]="profileForm.invalid">Save Profile</button>
+  </form>
+</div>

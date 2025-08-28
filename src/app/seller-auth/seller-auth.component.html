@@ -1,0 +1,65 @@
+<div class="signup-container">
+  <h2 *ngIf="!isLoginMode">Seller Sign-Up</h2>
+  <h2 *ngIf="isLoginMode">Seller Login</h2>
+
+  <!-- 🔹 Sign-Up Form -->
+  <form *ngIf="!isLoginMode" [formGroup]="signupForm" (ngSubmit)="onSubmitSignup()">
+    <label>
+      Name:
+      <input type="text" formControlName="name" />
+    </label>
+    <div class="error-message" *ngIf="name?.invalid && name?.touched">
+      Name is required.
+    </div>
+
+    <label>
+      Email:
+      <input type="email" formControlName="email" />
+    </label>
+    <div class="error-message" *ngIf="email?.invalid && email?.touched">
+      Valid email is required.
+    </div>
+
+    <label>
+      Password:
+      <input type="password" formControlName="password" />
+    </label>
+    <div class="error-message" *ngIf="password?.invalid && password?.touched">
+      Password must be at least 6 characters.
+    </div>
+
+    <button type="submit">Sign Up</button>
+    <p class="toggle-link">
+      Already signed up? <a (click)="switchMode()">Click here to login</a>
+    </p>
+  </form>
+
+  <!-- 🔹 Login Form -->
+  <form *ngIf="isLoginMode" [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+    <label>
+      Email:
+      <input type="email" formControlName="email" />
+    </label>
+    <div class="error-message" *ngIf="loginEmail?.invalid && loginEmail?.touched">
+      Valid email is required.
+    </div>
+
+    <label>
+      Password:
+     <input type="password" formControlName="password" />
+    </label>
+    <div class="error-message" *ngIf="loginPassword?.invalid && loginPassword?.touched">
+      Password is required.
+    </div>
+
+    <button type="submit">Login</button>
+    <p class="toggle-link">
+      New user? <a (click)="switchMode()">Click here to sign up</a>
+    </p>
+  </form>
+
+  <!-- ✅ Google Sign-In Button (Rendered for both forms) -->
+  <div style="text-align: center; margin-top: 20px;">
+    <div id="google-signin-button"></div>
+  </div>
+</div>

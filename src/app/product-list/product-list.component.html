@@ -1,0 +1,15 @@
+<h2>Product List</h2>
+<div class="product-list">
+  <div *ngIf="products.length === 0">No products found.</div>
+
+  <div *ngFor="let product of products" class="product-card">
+   <img [src]="'http://localhost:5000' + product.imageUrl" alt="Product Image" width>
+    <h3>{{ product.productName }}</h3> 
+    <p>{{ product.description }}</p>
+    <p>Price: ₹{{ product.price }}</p>
+     <button (click)="editProduct(product._id)">Edit</button>
+    <!-- DELETE BUTTON -->
+    <button (click)="deleteProduct(product._id)">Delete</button>
+  </div>
+  
+</div>

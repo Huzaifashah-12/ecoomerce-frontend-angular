@@ -1,0 +1,32 @@
+<h2>Add New Product</h2>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+  <label>Product Name</label>
+  <input formControlName="productName" type="text" />
+  <div *ngIf="productForm.get('productName')?.touched && productForm.get('productName')?.invalid">
+    Product name is required.
+  </div>
+
+  <label>Description</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Price</label>
+  <input formControlName="price" type="text" />
+  <div *ngIf="productForm.get('price')?.touched && productForm.get('price')?.invalid">
+    Enter a valid price.
+  </div>
+
+  <label>Category</label>
+  <input formControlName="category" type="text" />
+  <div *ngIf="productForm.get('category')?.touched && productForm.get('category')?.invalid">
+    Category is required.
+  </div>
+
+  <label>Product Image</label>
+  <input type="file" (change)="onFileSelected($event)" />
+  <div *ngIf="imageError">{{ imageError }}</div>
+
+  <button type="submit">Add Product</button>
+
+</form>

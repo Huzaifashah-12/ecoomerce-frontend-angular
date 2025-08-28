@@ -1,0 +1,61 @@
+.profile-container {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 2rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image-section {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.profile-image-section img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  display: block;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.masked-password {
+  background: #eaeaea;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+}
